@@ -19,7 +19,10 @@ if (!ALGOLIA_WRITE_KEY) {
   throw new Error('ALGOLIA_WRITE_KEY environment variable is not set');
 }
 
-const client = algoliasearch.default(publicVars.algolia.appId, ALGOLIA_WRITE_KEY);
+const client = algoliasearch.default(
+  publicVars.algolia.appId,
+  ALGOLIA_WRITE_KEY
+);
 const index = client.initIndex(publicVars.algolia.index);
 await Promise.all([
   index.setSettings({

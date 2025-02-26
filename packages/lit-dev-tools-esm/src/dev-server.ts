@@ -35,7 +35,13 @@ type DevServerPlugin = Exclude<DevServerConfig['plugins'], undefined>[number];
  */
 const dontResolveBareModulesInPlaygroundFiles: DevServerPlugin = {
   name: 'dont-resolve-bare-modules-in-playground-files',
-  async resolveImport({source, context}: {source: string, context: {path: string}}): Promise<string | undefined> {
+  async resolveImport({
+    source,
+    context,
+  }: {
+    source: string;
+    context: {path: string};
+  }): Promise<string | undefined> {
     if (context.path.startsWith('/samples/')) {
       return source;
     }

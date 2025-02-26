@@ -83,7 +83,8 @@ export async function freezeSnackbars(page: Page) {
 export async function freezeDialogs(page: Page) {
   for (const dialog of await page.$$('mwc-dialog')) {
     await page.evaluate((dialog) => {
-      for (const child of (dialog?.shadowRoot?.querySelectorAll('*') ?? []) as NodeListOf<Element>) {
+      for (const child of (dialog?.shadowRoot?.querySelectorAll('*') ??
+        []) as NodeListOf<Element>) {
         (child as HTMLElement).style.transition = 'none';
       }
     }, dialog);

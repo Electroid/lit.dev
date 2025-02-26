@@ -19,6 +19,9 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "paths": {
+      "@web/dev-server-core": ["./node_modules/@web/dev-server-core"]
+    }
   }
 }

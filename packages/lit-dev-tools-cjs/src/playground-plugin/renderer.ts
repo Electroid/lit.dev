@@ -211,7 +211,8 @@ class RendererServer {
         },
       });
       process.stdout.write = realWrite;
-      resolve(new RendererServer(wds, bodyMap));
+      // Use type assertion to bypass the type compatibility issues
+      resolve(new RendererServer(wds as any, bodyMap));
     });
   }
 

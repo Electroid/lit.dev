@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import algolia from 'algoliasearch';
+import * as algoliasearch from 'algoliasearch';
 import fs from 'fs';
 import {publicVars} from './configs.js';
 
@@ -19,7 +19,7 @@ if (!ALGOLIA_WRITE_KEY) {
   throw new Error('ALGOLIA_WRITE_KEY environment variable is not set');
 }
 
-const client = algolia(publicVars.algolia.appId, ALGOLIA_WRITE_KEY);
+const client = algoliasearch.default(publicVars.algolia.appId, ALGOLIA_WRITE_KEY);
 const index = client.initIndex(publicVars.algolia.index);
 await Promise.all([
   index.setSettings({

@@ -49,12 +49,13 @@
     "@lit/ts-transformers": "^1.1.1",
     "@types/co-body": "^6.1.0",
     "@types/prettier": "^2.3.2",
-    "@web/dev-server": "^0.1.6",
+    "@web/dev-server": "^0.4.6",
     "algoliasearch": "^4.14.2",
     "co-body": "^6.1.0",
     "fast-glob": "^3.2.9",
     "lit-dev-server": "^0.0.0",
     "lit-dev-tools-cjs": "^0.0.0",
+    "playground-elements": "^0.19.1",
     "prettier": "^2.3.2"
   }
 }

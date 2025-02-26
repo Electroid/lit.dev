@@ -17,7 +17,7 @@
     "format:check": "prettier . --check",
     "nuke": "rm -rf node_modules packages/*/node_modules && bun install",
     "upgrade": "rm -rf node_modules bun.lockb packages/*/node_modules && bun install",
-    "test:unit": "bun run test -w lit-dev-tools-cjs",
+    "test:unit": "wireit -p lit-dev-tools-cjs:test",
     "test:integration": "bun run test:integration -w lit-dev-tests",
     "test:integration:update-golden-screenshots": "bun run test:integration:update-golden-screenshots -w lit-dev-tests",
     "test:links": "bun run test:links -w lit-dev-tests",

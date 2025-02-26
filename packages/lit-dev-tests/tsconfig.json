@@ -4,7 +4,14 @@
     "rootDir": "src",
     "outDir": "lib",
     "incremental": true,
-    "tsBuildInfoFile": "lib/.tsbuildinfo"
+    "tsBuildInfoFile": "lib/.tsbuildinfo",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"],
   "exclude": []

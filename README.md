@@ -2,9 +2,11 @@
 
 New site, new repo.
 
+> **Note:** This project has been migrated from npm to [bun](https://bun.sh). Please make sure you have bun installed before working with this repo. You can install bun with `curl -fsSL https://bun.sh/install | bash`.
+
 ## Packages
 
-This is an npm workspaces monorepo.
+This is a bun workspaces monorepo.
 
 - lit-dev-content: Main content of lit.dev
 - lit-dev-server: Production web server for lit.dev
@@ -15,13 +17,13 @@ This is an npm workspaces monorepo.
 ### Install dependencies
 
 ```sh
-npm ci
+bun install
 ```
 
 ### Develop site content
 
 ```sh
-npm run dev
+bun run dev
 ```
 
 Serves at [`http://localhost:5415`](http://localhost:5415).
@@ -47,11 +49,11 @@ If needed, you can check for dev mode from an Eleventy template using the
 
 ### Update generated API docs
 
-First run `npm run dev` as shown above, and then in another terminal:
+First run `bun run dev` as shown above, and then in another terminal:
 
 ```sh
 cd packages/lit-dev-api
-npm run build:watch
+bun run build:watch
 ```
 
 You can now edit the comments in any `.ts` file in the `lit` directory,
@@ -70,8 +72,8 @@ commit, update the `sha` field in
 ### Serve production mode
 
 ```sh
-npm run build
-npm start
+bun run build
+bun start
 ```
 
 Serves at [`http://localhost:6415`](http://localhost:6415)
@@ -79,12 +81,12 @@ Serves at [`http://localhost:6415`](http://localhost:6415)
 ### Watch production mode
 
 ```sh
-npm start # production server
+bun start # production server
 
 cd packages/lit-dev-content
-npm run build:ts:watch     # TypeScript
-npm run build:rollup:watch # Rollup
-npm run build:eleventy:watch   # Eleventy
+bun run build:ts:watch     # TypeScript
+bun run build:rollup:watch # Rollup
+bun run build:eleventy:watch   # Eleventy
 ```
 
 Serves at [`http://localhost:6415`](http://localhost:6415)

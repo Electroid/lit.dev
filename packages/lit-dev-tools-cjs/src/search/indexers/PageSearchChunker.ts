@@ -111,7 +111,7 @@ export class PageSearchChunker {
     const removedSections = article.querySelectorAll(
       'nav#inlineToc, header.articleHeader'
     );
-    [...removedSections].forEach((section) => section.remove());
+    Array.from(removedSections).forEach((section) => section.remove());
     return article;
   }
 

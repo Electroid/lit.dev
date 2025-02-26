@@ -9,16 +9,14 @@ jobs:
     steps:
       - uses: google/wireit@setup-github-actions-caching/v1
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
+          bun-version: latest
 
-      - run: npm ci
-      - run: npx playwright install-deps
+      - run: bun install
+      - run: bunx playwright install-deps
       - id: test
-        run: npm run test:integration
+        run: bun run test:integration
 
       # This step needs to come before the :update-golden-screenshots step
       # below, since that will delete the output files.
@@ -33,7 +31,7 @@ jobs:
           if-no-files-found: ignore
 
       - if: ${{ always() && steps.test.outcome == 'failure' }}
-        run: npm run test:integration:update-golden-screenshots
+        run: bun run test:integration:update-golden-screenshots
 
       - name: Upload screenshot-goldens.zip artifact
         if: ${{ always() && steps.test.outcome == 'failure' }}

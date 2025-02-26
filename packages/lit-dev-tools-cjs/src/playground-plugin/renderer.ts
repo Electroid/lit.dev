@@ -123,8 +123,8 @@ export class Renderer {
 
           // Replace zero width newlines that don't copy paste well with a line
           // feed unicode character that pastes correctly.
-          const codeLines = cm.querySelectorAll(
-            '.CodeMirror-line > span > span[cm-text]'
+          const codeLines = Array.from(
+            cm.querySelectorAll('.CodeMirror-line > span > span[cm-text]')
           );
           for (const line of codeLines) {
             if (line?.textContent?.match(/^[\u200B]*$/)) {
@@ -211,7 +211,8 @@ class RendererServer {
         },
       });
       process.stdout.write = realWrite;
-      resolve(new RendererServer(wds, bodyMap));
+      // Use type assertion to bypass the type compatibility issues between different versions of DevServer
+      resolve(new RendererServer(wds as unknown as DevServer, bodyMap));
     });
   }
 

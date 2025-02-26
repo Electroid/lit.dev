@@ -12,14 +12,12 @@ jobs:
     steps:
       - uses: google/wireit@setup-github-actions-caching/v1
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
+          bun-version: latest
 
-      - run: npm ci
+      - run: bun install
       - name: Publish algolia search index
         env:
           ALGOLIA_WRITE_KEY: ${{ secrets.LIT_DEV_ALGOLIA_WRITE_KEY }}
-        run: npm run publish-search-index
+        run: bun run publish-search-index
